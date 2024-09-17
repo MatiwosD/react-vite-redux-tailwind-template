@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",   // Ensures TypeScript resolves modules like Node.js
-    "module": "esnext",  // This is required for import.meta support
-    "target": "esnext",  // Optionally set the target to a modern version
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": ".",               // Ensure TypeScript can find modules in root directory
-    "paths": {                    // Optional: Define any custom paths
+    "baseUrl": ".",
+    "paths": {
       "@reduxjs/*": ["node_modules/@reduxjs/*"],
       "redux-logger": ["node_modules/redux-logger"]
-    }
+    },
+    "jsx": "react-jsx",  // Enable JSX support (use "react-jsx" for React 17+)
+    "allowJs": true,          // Allow JavaScript files in the project
+    "checkJs": false          // Optionally, disable type-checking for JS files (set to true if you want type checking for JS)
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
