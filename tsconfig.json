@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
+    "module": "esnext",  // This is required for import.meta support
+    "target": "esnext",  // Optionally set the target to a modern version
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
