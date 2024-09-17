@@ -1,21 +1,30 @@
 import * as types from "../Action/actionType";
 
-const initialState = {
-  // authActions
+interface State {
+  loggedIn: boolean;
+  token: string | null;
+  userId: string | null;
+  productList: any[]; // You can replace 'any[]' with a more specific type if available
+}
+
+interface Action {
+  type: string;
+  payload: any;
+}
+
+const initialState: State = {
   loggedIn: false,
   token: null,
   userId: null,
-
-  // products
   productList: [],
 };
 
-const DataReducers = (state = initialState, action) => {
+const DataReducers = (state = initialState, action: Action): State => {
   switch (action.type) {
     case types.LOGIN:
       return {
         ...state,
-        loggedIn: action.payload.token && action.payload.userId,
+        loggedIn: !!action.payload.token && !!action.payload.userId,
         token: action.payload.token,
         userId: action.payload.userId,
       };
@@ -30,10 +39,11 @@ const DataReducers = (state = initialState, action) => {
     case types.PRODUCTS_LIST:
       return {
         ...state,
-        productList: action.payload.products,
+        productList: action.payload,
       };
     default:
       return state;
   }
 };
+
 export default DataReducers;

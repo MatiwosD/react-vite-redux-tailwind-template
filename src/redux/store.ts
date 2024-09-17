@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import { thunk } from 'redux-thunk'; 
-import rootReducer from "./Reducer/root-reducer.js";
+import thunk from "redux-thunk"; // Remove 'import thunk from redux-thunk' from JS if toolkit used
+import rootReducer from "./Reducer/root-reducer";
 
 const store = configureStore({
   reducer: rootReducer,
